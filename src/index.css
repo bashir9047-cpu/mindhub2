@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* MindHub 2026 Wellness Palette */
+    --background: 36 30% 94%;        /* Oatmeal #F5F2ED */
+    --foreground: 205 95% 21%;       /* Deep Navy #033F63 */
+
+    --card: 132 10% 61%;             /* Sage Green #94A596 - used for card variant */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 95% 21%;
+
+    --primary: 205 95% 21%;          /* Deep Navy #033F63 */
+    --primary-foreground: 36 30% 94%;
+
+    --secondary: 132 10% 61%;        /* Sage Green #94A596 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 36 20% 87%;
+    --muted-foreground: 205 40% 40%;
+
+    --accent: 132 10% 61%;
+    --accent-foreground: 205 95% 21%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 36 15% 82%;
+    --input: 36 15% 82%;
+    --ring: 205 95% 21%;
+
+    --radius: 1.5rem;
+
+    /* MindHub Custom Tokens */
+    --oatmeal: 36 30% 94%;
+    --sage: 132 10% 61%;
+    --sage-light: 132 15% 88%;
+    --sage-dark: 132 15% 45%;
+    --navy: 205 95% 21%;
+    --navy-light: 205 60% 35%;
+    --coral: 17 70% 52%;             /* Muted Coral #DC582A */
+    --coral-light: 17 80% 65%;
+    --coral-dark: 17 70% 42%;
+
+    /* Glassmorphism nav */
+    --glass-bg: rgba(245, 242, 237, 0.72);
+    --glass-border: rgba(148, 165, 150, 0.3);
+    --glass-shadow: 0 8px 32px rgba(3, 63, 99, 0.12);
+
+    /* Shadows */
+    --shadow-card: 0 4px 24px rgba(3, 63, 99, 0.10), 0 1px 4px rgba(3, 63, 99, 0.06);
+    --shadow-elevated: 0 8px 40px rgba(3, 63, 99, 0.16), 0 2px 8px rgba(3, 63, 99, 0.08);
+    --shadow-crisis: 0 4px 24px rgba(220, 88, 42, 0.4);
+
+    --sidebar-background: 36 30% 94%;
+    --sidebar-foreground: 205 95% 21%;
+    --sidebar-primary: 205 95% 21%;
+    --sidebar-primary-foreground: 36 30% 94%;
+    --sidebar-accent: 132 15% 88%;
+    --sidebar-accent-foreground: 205 95% 21%;
+    --sidebar-border: 36 15% 82%;
+    --sidebar-ring: 205 95% 21%;
+  }
+
+  .dark {
+    --background: 205 95% 8%;
+    --foreground: 36 30% 94%;
+    --card: 205 70% 14%;
+    --card-foreground: 36 30% 94%;
+    --popover: 205 70% 14%;
+    --popover-foreground: 36 30% 94%;
+    --primary: 132 10% 61%;
+    --primary-foreground: 205 95% 8%;
+    --secondary: 205 60% 20%;
+    --secondary-foreground: 36 30% 94%;
+    --muted: 205 50% 16%;
+    --muted-foreground: 205 20% 65%;
+    --accent: 205 60% 20%;
+    --accent-foreground: 36 30% 94%;
+    --destructive: 17 70% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 205 40% 20%;
+    --input: 205 40% 20%;
+    --ring: 132 10% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#050505] text-white antialiased overflow-x-hidden;
+    font-family: 'Inter', sans-serif; /* Soft, modern typography */
+  }
+  h1, h2, h3, .font-display {
+    font-family: 'Fraunces', serif;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-crisis {
+    box-shadow: var(--shadow-crisis);
+  }
+
+  .rounded-hub {
+    border-radius: 24px;
+  }
+
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  .text-coral {
+    color: hsl(var(--coral));
+  }
+
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+
+  .bg-sage-light {
+    background-color: hsl(var(--sage-light));
+  }
+
+  .bg-oatmeal {
+    background-color: hsl(var(--oatmeal));
+  }
+
+  .bg-coral {
+    background-color: hsl(var(--coral));
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  .border-sage {
+    border-color: hsl(var(--sage));
+  }
+}
+
+/* Breathing animation */
+@keyframes breathe-in {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.85); opacity: 0.7; }
+}
+
+@keyframes breathe-ring {
+  0% { transform: scale(0.8); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+  100% { transform: scale(0.8); opacity: 0.3; }
+}
+
+@keyframes pulse-crisis {
+  0%, 100% { box-shadow: 0 4px 24px rgba(220, 88, 42, 0.4); }
+  50% { box-shadow: 0 4px 40px rgba(220, 88, 42, 0.7), 0 0 0 8px rgba(220, 88, 42, 0.15); }
+}
+
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mood-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.animate-breathe { animation: breathe-in 4s ease-in-out infinite; }
+.animate-breathe-ring { animation: breathe-ring 4s ease-in-out infinite; }
+.animate-pulse-crisis { animation: pulse-crisis 2.5s ease-in-out infinite; }
+.animate-float-up { animation: float-up 0.5s ease-out forwards; }
+.animate-mood-bounce { animation: mood-bounce 0.3s ease-in-out; }
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-card {
+    @apply glass rounded-2xl p-6 transition-all duration-300 hover:bg-white/10 hover:-translate-y-1;
+  }
+
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  }
+
+  .pill-button {
+    @apply px-8 py-3 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-white font-medium 
+           hover:bg-cyan-400/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all active:scale-95;
+  }
+
+  /* Gentle Pulse for "Breathing" elements */
+  .animate-breathe {
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+}
